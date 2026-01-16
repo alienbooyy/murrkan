@@ -57,7 +57,8 @@ temp/
 
 # Build artifacts
 *.exe
-*.spec
+# Allow murrkan.spec for PyInstaller
+# *.spec
 
 # Node modules (if using npm for frontend)
 node_modules/
