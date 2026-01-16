@@ -33,8 +33,8 @@ fi
 echo ""
 echo "[3/4] Installing dependencies..."
 source venv/bin/activate
-python -m pip install --upgrade pip
-pip install -r requirements.txt
+python3 -m pip install --upgrade pip
+pip3 install -r requirements.txt
 
 # Build the executable
 echo ""
