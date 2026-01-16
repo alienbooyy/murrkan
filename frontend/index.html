@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Restoran Yönetim Sistemi</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Restoran Yönetim Sistemi</h1>
+        <div class="header-buttons">
+            <button onclick="window.location.href='/admin'" class="btn btn-secondary">Admin Panel</button>
+            <button onclick="window.location.href='/tablet'" class="btn btn-secondary">Tablet Görünümü</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="main-content">
+            <div id="tables-container" class="tables-grid">
+                <!-- Tables will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Modal -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Masa <span id="modalTableNumber"></span> - Adisyon</h2>
+                <span class="close" onclick="closeOrderModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="order-section">
+                    <h3>Siparişler</h3>
+                    <div id="orderItems" class="order-items">
+                        <!-- Order items will be loaded here -->
+                    </div>
+                    <div class="order-total">
+                        <strong>Toplam: <span id="orderTotal">0.00</span> ₺</strong>
+                    </div>
+                </div>
+
+                <div class="product-section">
+                    <h3>Ürün Ekle</h3>
+                    <div class="product-categories">
+                        <button class="category-btn active" onclick="filterProducts('all')">Tümü</button>
+                        <button class="category-btn" onclick="filterProducts('Yemek')">Yemek</button>
+                        <button class="category-btn" onclick="filterProducts('İçecek')">İçecek</button>
+                        <button class="category-btn" onclick="filterProducts('Tatlı')">Tatlı</button>
+                    </div>
+                    <div id="productsList" class="products-grid">
+                        <!-- Products will be loaded here -->
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="printOrder()">Yazdır</button>
+                <button class="btn btn-warning" onclick="showGermanStylePayment()">Alman Usulü</button>
+                <button class="btn btn-success" onclick="showPaymentModal()">Ödeme Al</button>
+                <button class="btn btn-danger" onclick="closeTable()">Kapat</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Ödeme</h2>
+                <span class="close" onclick="closePaymentModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="payment-info">
+                    <h3>Toplam Tutar: <span id="paymentTotal">0.00</span> ₺</h3>
+                </div>
+                <div class="payment-methods">
+                    <button class="btn btn-large" onclick="processPayment('cash')">Nakit</button>
+                    <button class="btn btn-large" onclick="processPayment('card')">Kredi Kartı</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- German Style Payment Modal -->
+    <div id="germanPaymentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Alman Usulü Ödeme</h2>
+                <span class="close" onclick="closeGermanPaymentModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Ödenecek ürünleri seçin:</p>
+                <div id="germanPaymentItems" class="german-payment-items">
+                    <!-- Items will be loaded here -->
+                </div>
+                <div class="payment-info">
+                    <h3>Seçilen Toplam: <span id="germanPaymentTotal">0.00</span> ₺</h3>
+                </div>
+                <div class="payment-methods">
+                    <button class="btn btn-large" onclick="processGermanPayment('cash')">Nakit</button>
+                    <button class="btn btn-large" onclick="processGermanPayment('card')">Kredi Kartı</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
