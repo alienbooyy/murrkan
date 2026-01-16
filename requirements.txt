@@ -1,0 +1,8 @@
+# Python Requirements for Murrkan Application
+# These dependencies will be included in the executable
+
+# PyInstaller for building the Windows executable
+pyinstaller>=6.0.0
+
+# No additional runtime dependencies for the basic application
+# Add your project dependencies below as needed
