@@ -38,7 +38,20 @@ function showTab(tabName) {
     
     // Show selected tab
     document.getElementById(tabName + 'Tab').classList.add('active');
-    event.target.classList.add('active');
+    
+    // Set active button if event exists
+    if (window.event && window.event.target) {
+        window.event.target.classList.add('active');
+    } else {
+        // Fallback: find and activate the first matching tab button
+        const buttons = document.querySelectorAll('.tab-btn');
+        buttons.forEach((btn, index) => {
+            if (index === 0 && tabName === 'reports') btn.classList.add('active');
+            if (index === 1 && tabName === 'products') btn.classList.add('active');
+            if (index === 2 && tabName === 'ingredients') btn.classList.add('active');
+            if (index === 3 && tabName === 'recipes') btn.classList.add('active');
+        });
+    }
     
     // Load data based on tab
     switch(tabName) {
