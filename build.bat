@@ -58,7 +58,7 @@ if not exist "dist\" mkdir dist
 REM Run PyInstaller with configuration
 pyinstaller --clean --noconfirm ^
     --onefile ^
-    --windowed ^
+    --console ^
     --name Murrkan ^
     --icon=NONE ^
     --add-data "README.md;." ^

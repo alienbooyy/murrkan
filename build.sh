@@ -48,7 +48,7 @@ mkdir -p dist
 # Run PyInstaller with configuration
 pyinstaller --clean --noconfirm \
     --onefile \
-    --windowed \
+    --console \
     --name Murrkan \
     --icon=NONE \
     --add-data "README.md:." \

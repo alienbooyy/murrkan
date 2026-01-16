@@ -132,11 +132,14 @@ pyinstaller --clean --noconfirm \
 ### Build Options Explained
 
 - `--onefile`: Package everything into a single .exe file
-- `--windowed`: Don't show a console window (remove this for console apps)
+- `--console`: Show console window (required for console apps with user input)
+- `--windowed`: Don't show console window (use for GUI apps only, **not for console apps**)
 - `--name Murrkan`: Name of the output executable
 - `--add-data`: Include additional files in the bundle
 - `--clean`: Clean PyInstaller cache before building
 - `--noconfirm`: Replace output directory without confirmation
+
+**Note**: This application uses `--console` because it requires user input. Only use `--windowed` for GUI applications that don't need a console.
 
 ### Output Location
 
