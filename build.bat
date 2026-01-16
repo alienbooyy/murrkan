@@ -55,14 +55,8 @@ echo.
 REM Create output directory if it doesn't exist
 if not exist "dist\" mkdir dist
 
-REM Run PyInstaller with configuration
-pyinstaller --clean --noconfirm ^
-    --onefile ^
-    --console ^
-    --name Murrkan ^
-    --icon=NONE ^
-    --add-data "README.md;." ^
-    app.py
+REM Run PyInstaller with the spec file
+pyinstaller --clean --noconfirm Murrkan.spec
 
 if errorlevel 1 (
     echo.

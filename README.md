@@ -120,14 +120,19 @@ If you prefer to build manually:
 # Install PyInstaller
 pip install pyinstaller
 
-# Build the executable
+# Build using the spec file (recommended)
+pyinstaller --clean --noconfirm Murrkan.spec
+
+# Or build with command-line options
 pyinstaller --clean --noconfirm \
     --onefile \
-    --windowed \
+    --console \
     --name Murrkan \
     --add-data "README.md:." \
     app.py
 ```
+
+**Note**: Use `--console` for console applications (like this one). Only use `--windowed` for GUI applications.
 
 ### Build Options Explained
 

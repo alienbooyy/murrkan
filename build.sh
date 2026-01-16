@@ -45,14 +45,8 @@ echo ""
 # Create output directory if it doesn't exist
 mkdir -p dist
 
-# Run PyInstaller with configuration
-pyinstaller --clean --noconfirm \
-    --onefile \
-    --console \
-    --name Murrkan \
-    --icon=NONE \
-    --add-data "README.md:." \
-    app.py
+# Run PyInstaller with the spec file
+pyinstaller --clean --noconfirm Murrkan.spec
 
 echo ""
 echo "========================================"
